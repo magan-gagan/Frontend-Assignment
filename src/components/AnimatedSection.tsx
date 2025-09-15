@@ -123,20 +123,15 @@ export default function AnimatedSection() {
           className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
         >
           {/* Image */}
-          <img
+          {/* <img
             src="/customize.png" // Make sure this image exists in your public/images folder
             className="w-full h-64 object-cover rounded-md mb-4"
-          />
+          /> */}
+          {/* <img src="/customize.png" className="w-full max-h-40 object-cover rounded-md mb-4" /> */}
+          <img src="/customize.png" className="w-full max-h-40 object-cover rounded-md mb-4" />
 
-          {/* Icon Grid */}
-          <div className="grid grid-cols-3 grid-rows-2 gap-4">
-            <div className="w-12 h-12"></div>
-            <div className="w-12 h-12"></div>
-            <div className="w-12 h-12"></div>
-            <div className="w-12 h-12"></div>
-            <div className="w-12 h-12"></div>
-            <div className="w-12 h-12"></div>
-          </div>
+
+
 
           {/* Description */}
           <div className="text-center mt-4">
