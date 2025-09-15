@@ -125,7 +125,7 @@ export default function AnimatedSection() {
           {/* Image */}
           <img
             src="/customize.png" // Make sure this image exists in your public/images folder
-            className="w-full h-40 object-cover rounded-md mb-4"
+            className="w-full h-64 object-cover rounded-md mb-4"
           />
 
           {/* Icon Grid */}
