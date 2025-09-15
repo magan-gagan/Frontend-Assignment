@@ -121,11 +121,18 @@ export default function AnimatedSection() {
           ref={addToCardRefs}
           className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
         >
-          <img
+          {/* <img
             src="/customize.png"
             className="w-full h-40 md:h-64 object-cover rounded-md mb-4"
             alt="Customize & Configure"
-          />
+          /> */}
+          <div className="w-full max-w-md mx-auto">
+  <img
+    src="/customize.png"
+    className="w-full h-auto object-contain rounded-md mb-4"
+  />
+</div>
+
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-2">Customize & Configure</h3>
             <p className="text-gray-300">
