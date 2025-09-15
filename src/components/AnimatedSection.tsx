@@ -124,7 +124,7 @@ export default function AnimatedSection() {
         >
           {/* Image */}
           <img
-            src="/customize.jpg" // Make sure this image exists in your public/images folder
+            src="/customize.png" // Make sure this image exists in your public/images folder
             className="w-full h-40 object-cover rounded-md mb-4"
           />
 
