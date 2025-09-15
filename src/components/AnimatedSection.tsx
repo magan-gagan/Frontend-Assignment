@@ -27,28 +27,39 @@ export default function AnimatedSection() {
       },
     });
 
-    wordRefs.current.forEach((word, i) => {
-      tl.to(word, {
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out",
-      }, "+=0.1");
-    });
-
+    // Animate cards first
     cardsRef.current.forEach((card) => {
       tl.fromTo(
         card,
-        { x: 300, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1 },
-        "+=0.5"
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1 },
+        "+=0.2"
       );
     });
 
-    tl.to(wordRefs.current, {
-      opacity: 0,
-      duration: 1,
-      stagger: 0.05,
-    }, "+=0.5");
+    // Fade in each word
+    wordRefs.current.forEach((word, i) => {
+      tl.to(
+        word,
+        {
+          opacity: 1,
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      );
+    });
+
+    // Fade out text while cards are visible
+    tl.to(
+      wordRefs.current,
+      {
+        opacity: 0,
+        duration: 1,
+        stagger: 0.05,
+      },
+      "-=0.5"
+    );
   }, []);
 
   const words = [
@@ -74,23 +85,10 @@ export default function AnimatedSection() {
   return (
     <section
       id="scroll-container"
-      className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12"
+      className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12"
     >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 leading-relaxed text-center flex flex-wrap justify-center">
-        {words.map((word, i) => (
-          <span
-            key={i}
-            ref={(el) => {
-              if (el) wordRefs.current[i] = el;
-            }}
-            className="inline-block mx-1 opacity-10 translate-y-0"
-          >
-            {word.content}
-          </span>
-        ))}
-      </h2>
-
-      <div className="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full max-w-6xl justify-center mt-12">
+      {/* Cards First */}
+      <div className="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full max-w-6xl justify-center z-10">
         {/* Card 1 */}
         <div
           ref={addToCardRefs}
@@ -121,18 +119,11 @@ export default function AnimatedSection() {
           ref={addToCardRefs}
           className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
         >
-          {/* <img
+          <img
             src="/customize.png"
-            className="w-full h-40 md:h-64 object-cover rounded-md mb-4"
+            className="w-full h-40 md:h-64 object-contain rounded-md mb-4"
             alt="Customize & Configure"
-          /> */}
-          <div className="w-full max-w-md mx-auto">
-  <img
-    src="/customize.png"
-    className="w-full h-auto object-contain rounded-md mb-4"
-  />
-</div>
-
+          />
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-2">Customize & Configure</h3>
             <p className="text-gray-300">
@@ -146,10 +137,9 @@ export default function AnimatedSection() {
           ref={addToCardRefs}
           className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
         >
-          <div className="w-full flex justify-center mb-4">
-            <div className="w-48 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md mt-24">
-              Play now
-            </div>
+          <div className="flex-grow" />
+          <div className="w-48 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md mt-12 mb-4">
+            Play now
           </div>
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-2">Deploy Instantly</h3>
@@ -159,6 +149,21 @@ export default function AnimatedSection() {
           </div>
         </div>
       </div>
+
+      {/* Text Second */}
+      <h2 className="absolute bottom-12 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 leading-relaxed text-center flex flex-wrap justify-center z-0">
+        {words.map((word, i) => (
+          <span
+            key={i}
+            ref={(el) => {
+              if (el) wordRefs.current[i] = el;
+            }}
+            className="inline-block mx-1 opacity-10 translate-y-0"
+          >
+            {word.content}
+          </span>
+        ))}
+      </h2>
     </section>
   );
 }
