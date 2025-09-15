@@ -27,16 +27,6 @@ export default function AnimatedSection() {
       },
     });
 
-    // Animate cards first
-    cardsRef.current.forEach((card) => {
-      tl.fromTo(
-        card,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1 },
-        "+=0.2"
-      );
-    });
-
     // Fade in each word
     wordRefs.current.forEach((word, i) => {
       tl.to(
@@ -46,11 +36,11 @@ export default function AnimatedSection() {
           duration: 0.3,
           ease: "power2.out",
         },
-        "-=0.2"
+        "+=0.1"
       );
     });
 
-    // Fade out text while cards are visible
+    // Fade out all text
     tl.to(
       wordRefs.current,
       {
@@ -58,8 +48,18 @@ export default function AnimatedSection() {
         duration: 1,
         stagger: 0.05,
       },
-      "-=0.5"
+      "+=0.5"
     );
+
+    // Animate cards AFTER text is fully faded out
+    cardsRef.current.forEach((card) => {
+      tl.fromTo(
+        card,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1 },
+        ">" // Wait until previous animation finishes
+      );
+    });
   }, []);
 
   const words = [
@@ -85,73 +85,75 @@ export default function AnimatedSection() {
   return (
     <section
       id="scroll-container"
-      className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12"
+      className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12 overflow-hidden"
     >
-      {/* Cards First */}
-      <div className="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full max-w-6xl justify-center z-10">
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl z-10">
+        
         {/* Card 1 */}
         <div
           ref={addToCardRefs}
-          className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
+          className="h-[360px] p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col items-center text-center"
         >
-          <div className="grid grid-cols-3 grid-rows-2 gap-4 mb-4">
-            {["🎯", "🧩", "🎮", "🃏", "🧠", "🎳"].map((icon, index) => (
-              <div
-                key={index}
-                className={`w-12 h-12 bg-white rounded-md flex items-center justify-center text-black text-xl ${
-                  icon === "🎳" ? "border-4 border-orange-500 border-b-blue-500" : ""
-                }`}
-              >
-                {icon}
-              </div>
-            ))}
+          <div className="flex items-center justify-center h-40 mb-4">
+            <div className="grid grid-cols-3 grid-rows-2 gap-4">
+              {["🎯", "🧩", "🎮", "🃏", "🧠", "🎳"].map((icon, index) => (
+                <div
+                  key={index}
+                  className={`w-12 h-12 bg-white rounded-md flex items-center justify-center text-black text-xl ${
+                    icon === "🎳"
+                      ? "border-4 border-orange-500 border-b-blue-500"
+                      : ""
+                  }`}
+                >
+                  {icon}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-2">Choose a game</h3>
-            <p className="text-gray-300">
-              Browse our collection of interactive games that fits your audience
-            </p>
-          </div>
+          <h3 className="text-2xl font-bold text-white mb-2">Choose a game</h3>
+          <p className="text-gray-300">
+            Browse our collection of interactive games that fits your audience
+          </p>
         </div>
 
         {/* Card 2 */}
         <div
           ref={addToCardRefs}
-          className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
+          className="h-[360px] p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col items-center text-center"
         >
-          <img
-            src="/customize.png"
-            className="w-full h-40 md:h-64 object-contain rounded-md mb-4"
-            alt="Customize & Configure"
-          />
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-2">Customize & Configure</h3>
-            <p className="text-gray-300">
-              Set up triggers, rewards and visual elements without code.
-            </p>
+          <div className="flex items-center justify-center h-40 mb-4">
+            <img
+              src="/customize.png"
+              className="max-h-full object-contain rounded-md"
+              alt="Customize & Configure"
+            />
           </div>
+          <h3 className="text-2xl font-bold text-white mb-2">Customize & Configure</h3>
+          <p className="text-gray-300">
+            Set up triggers, rewards and visual elements without code.
+          </p>
         </div>
 
         {/* Card 3 */}
         <div
           ref={addToCardRefs}
-          className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
+          className="h-[360px] p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col items-center text-center"
         >
-          <div className="flex-grow" />
-          <div className="w-48 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md mt-12 mb-4">
-            Play now
+          <div className="flex items-center justify-center h-40 mb-4">
+            <div className="w-40 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md">
+              Play now
+            </div>
           </div>
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-2">Deploy Instantly</h3>
-            <p className="text-gray-300">
-              Add a single line of code and start boosting engagement immediately.
-            </p>
-          </div>
+          <h3 className="text-2xl font-bold text-white mb-2">Deploy Instantly</h3>
+          <p className="text-gray-300">
+            Add a single line of code and start boosting engagement immediately.
+          </p>
         </div>
       </div>
 
-      {/* Text Second */}
-      <h2 className="absolute bottom-12 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 leading-relaxed text-center flex flex-wrap justify-center z-0">
+      {/* Text */}
+      <h2 className="absolute top-1/2 transform -translate-y-1/2 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 leading-relaxed text-center flex flex-wrap justify-center z-0">
         {words.map((word, i) => (
           <span
             key={i}
