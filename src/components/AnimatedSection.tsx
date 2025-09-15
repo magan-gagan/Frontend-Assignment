@@ -118,24 +118,28 @@ export default function AnimatedSection() {
             </p>
           </div>
         </div>
-
         <div
           ref={addToCardRefs}
           className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
         >
+          {/* Image */}
+          <img
+            src="/customize.jpg" // Make sure this image exists in your public/images folder
+            className="w-full h-40 object-cover rounded-md mb-4"
+          />
+
           {/* Icon Grid */}
-           <div className="grid grid-cols-3 grid-rows-2 gap-4">
-            <div className="w-12 h-12 "></div>
-            <div className="w-12 h-12 "></div>
-            <div className="w-12 h-12 "></div>
-            <div className="w-12 h-12 "></div>
-            <div className="w-12 h-12 "></div>
-            <div className="w-12 h-12 "></div>
+          <div className="grid grid-cols-3 grid-rows-2 gap-4">
+            <div className="w-12 h-12"></div>
+            <div className="w-12 h-12"></div>
+            <div className="w-12 h-12"></div>
+            <div className="w-12 h-12"></div>
+            <div className="w-12 h-12"></div>
+            <div className="w-12 h-12"></div>
           </div>
-          
 
           {/* Description */}
-          <div className="text-center">
+          <div className="text-center mt-4">
             <h3 className="text-2xl font-bold text-white mb-2">Customize & Configure</h3>
             <p className="text-gray-300">
               Set up triggers, rewards and visual elements without code.
@@ -143,27 +147,28 @@ export default function AnimatedSection() {
           </div>
         </div>
 
+
         <div
-  ref={addToCardRefs}
-  className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
->
-  {/* Rectangle Icon */}
-  <div className="w-60 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md self-center mt-12">
-    Play now
-  </div>
+          ref={addToCardRefs}
+          className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
+        >
+          {/* Rectangle Icon */}
+          <div className="w-60 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md self-center mt-12">
+            Play now
+          </div>
 
-  {/* Description */}
-  <div className="text-center">
-    <h3 className="text-2xl font-bold text-white mb-2">Deploy Instantly</h3>
-    <p className="text-gray-300">
-      Add a single line of code and start boosting engagement immediately. 
-    </p>
-  </div>
-</div>
+          {/* Description */}
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-white mb-2">Deploy Instantly</h3>
+            <p className="text-gray-300">
+              Add a single line of code and start boosting engagement immediately.
+            </p>
+          </div>
+        </div>
 
 
 
-       
+
 
       </div>
     </section>
