@@ -147,7 +147,7 @@ export default function AnimatedSection() {
           className="p-6 bg-gray-800 rounded-xl shadow-lg opacity-0 flex flex-col justify-between items-center text-center min-h-[300px]"
         >
           <div className="w-full flex justify-center mb-4">
-            <div className="w-48 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md">
+            <div className="w-48 h-12 bg-orange-500 rounded-3xl flex items-center justify-center text-white text-xl shadow-md mt-24">
               Play now
             </div>
           </div>
