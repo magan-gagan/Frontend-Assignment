@@ -128,7 +128,7 @@ export default function AnimatedSection() {
             className="w-full h-64 object-cover rounded-md mb-4"
           /> */}
           {/* <img src="/customize.png" className="w-full max-h-40 object-cover rounded-md mb-4" /> */}
-          <img src="/customize.png" className="w-full max-h-40 object-cover rounded-md mb-4" />
+          <img src="/customize.png" className="w-full object-cover rounded-md mb-4" />
 
 
 
