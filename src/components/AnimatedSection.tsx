@@ -51,13 +51,13 @@ export default function AnimatedSection() {
       "+=0.5"
     );
 
-    // Animate cards AFTER text is fully faded out
+    // Animate cards from right to left
     cardsRef.current.forEach((card) => {
       tl.fromTo(
         card,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1 },
-        ">" // Wait until previous animation finishes
+        { x: 100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, ease: "power2.out" },
+        ">"
       );
     });
   }, []);
