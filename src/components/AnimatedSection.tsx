@@ -89,7 +89,6 @@ export default function AnimatedSection() {
     >
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl z-10">
-        
         {/* Card 1 */}
         <div
           ref={addToCardRefs}
@@ -153,7 +152,7 @@ export default function AnimatedSection() {
       </div>
 
       {/* Text */}
-      <h2 className="absolute top-1/2 transform -translate-y-1/2 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 leading-relaxed text-center flex flex-wrap justify-center z-0">
+      <h2 className="absolute top-0 sm:top-1/2 sm:transform sm:-translate-y-1/2 mt-12 sm:mt-0 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 leading-relaxed text-center flex flex-wrap justify-center z-0">
         {words.map((word, i) => (
           <span
             key={i}
