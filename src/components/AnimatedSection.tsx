@@ -99,7 +99,7 @@ export default function AnimatedSection() {
           className="h-[360px] opacity-0 flex items-center justify-center"
         >
           <img
-            src="/card1.png"
+            src="/Card1.png"
             alt="Card 1"
             className="h-full w-full object-contain"
           />
@@ -111,7 +111,7 @@ export default function AnimatedSection() {
           className="h-[360px] opacity-0 flex items-center justify-center"
         >
           <img
-            src="/card2.png"
+            src="/Card2.png"
             alt="Card 2"
             className="h-full w-full object-contain"
           />
@@ -123,7 +123,7 @@ export default function AnimatedSection() {
           className="h-[360px] opacity-0 flex items-center justify-center"
         >
           <img
-            src="/card3.png"
+            src="/Card3.png"
             alt="Card 3"
             className="h-full w-full object-contain"
           />
