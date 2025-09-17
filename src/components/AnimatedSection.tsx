@@ -87,6 +87,48 @@ export default function AnimatedSection() {
   ];
 
   return (
+    <>
+<nav className="flex justify-center items-center py-4 bg-black">
+  <div className="bg-gray-700 rounded-full px-6 py-2 flex items-center space-x-6">
+    <a href="#" className="text-white">Link 1</a>
+    <a href="#" className="text-white">Link 2</a>
+    <a href="#" className="text-white">Link 3</a>
+    <a href="#" className="text-white">Link 4</a>
+    <a href="#" className="text-white">Link 5</a>
+    <button className="ml-4 bg-white text-black px-3 py-1 rounded-full">
+      Login
+    </button>
+  </div>
+</nav>
+
+    
+     <section className="relative min-h-screen bg-black text-white flex flex-col md:flex-row items-center justify-center px-6 md:px-16">
+        {/* Left content */}
+        
+        <div className="flex-1 flex flex-col items-start justify-center space-y-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+            AI powered shortcut for <br /> gamification!
+          </h1>
+          <p className="text-lg text-gray-300 max-w-lg">
+            Add fully-branded mini-games onto any website. Increase engagement,
+            collect leads, and reward customers.
+          </p>
+          <div className="flex space-x-4 mt-6">
+            <button className="px-4 py-2 rounded-full bg-white text-black font-semibold hover:bg-gray-200">
+              Try Early access
+            </button>
+            <button className="px-4 py-2 rounded-full border border-white text-white font-semibold hover:bg-white hover:text-black">
+              View Demo
+            </button>
+          </div>
+        </div>
+
+        {/* Right placeholder (replace with image/video later) */}
+        <div className="flex-1 h-[400px] bg-gray-900 rounded-xl mt-10 md:mt-0"></div>
+      </section>
+
+
+
     <section
       id="scroll-container"
       className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-12 overflow-hidden"
@@ -171,5 +213,7 @@ export default function AnimatedSection() {
       </div>
 
     </section>
+    </>
   );
+
 }
